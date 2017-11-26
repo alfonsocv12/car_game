@@ -1,4 +1,4 @@
-package Car_Game;
+package car_game;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
