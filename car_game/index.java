@@ -33,7 +33,7 @@ public class index extends JFrame {
 		setUndecorated(true);
 		setVisible(true);
 		//Background
-		ImageIcon fondo=new ImageIcon(this.getClass().getResource("Sin t�tulo-1.jpg"));
+		ImageIcon fondo=new ImageIcon(this.getClass().getResource("Sin titulo-1.jpg"));
 		Image fondo1 = fondo.getImage().getScaledInstance(1933, 1203,Image.SCALE_DEFAULT);
 		ImageIcon p=new ImageIcon(fondo1);
 		
