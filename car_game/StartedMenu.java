@@ -1,11 +1,10 @@
-package Car_Game;
+package car_game;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,12 +14,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.swing.JButton;
 
 public class StartedMenu extends JFrame {
@@ -58,7 +62,7 @@ public class StartedMenu extends JFrame {
 		Image fondo1 = fondo.getImage().getScaledInstance(1933, 1203,Image.SCALE_DEFAULT);
 		ImageIcon p=new ImageIcon(fondo1);
 		
-		JLabel lblChooseACar = new JLabel("Choose a car");
+		JLabel lblChooseACar = new JLabel("Choose the Cylinders");
 		lblChooseACar.setForeground(Color.WHITE);
 		lblChooseACar.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 42));
 		lblChooseACar.setHorizontalAlignment(SwingConstants.CENTER);
@@ -68,6 +72,7 @@ public class StartedMenu extends JFrame {
 		//car counter
 		JLabel CCounter=new JLabel("0");
 		JLabel Car = 	new JLabel("");
+		
 		ImageIcon CarI=new ImageIcon(this.getClass().getResource("Engine"+CCounter.getText()+".gif"));
 		Image CarAD=CarI.getImage().getScaledInstance(1202, 906, Image.SCALE_DEFAULT);
 		ImageIcon CarFinal=new ImageIcon(CarAD);
@@ -79,39 +84,32 @@ public class StartedMenu extends JFrame {
 		lblNewLabel.setBounds(732, 163, 457, 106);
 		contentPane.add(lblNewLabel);
 		
-		JButton Select = new JButton("Select");
-		Select.setBounds(880, 982, 167, 61);
-		contentPane.add(Select);
-		Car.setIcon(CarFinal);
-		Car.setBounds(387, 163, 1202, 906);
-		contentPane.add(Car);
+		
+		
 		
 		JLabel FlechaD = new JLabel("");
 		FlechaD.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				int counterPlus= Integer.parseInt(CCounter.getText());
-				if(counterPlus==3) {
-					lblNewLabel.setText("8 Cylinders");
+					if(counterPlus==3) {
+						lblNewLabel.setText("8 Cylinders");
 				
-				}else {
-					counterPlus++;
-					System.out.println(counterPlus);
-					CCounter.setText(String.valueOf(counterPlus));
-					ImageIcon CarI = new ImageIcon(this.getClass().getResource("Engine"+CCounter.getText()+".gif"));
-					Image CarAD=CarI.getImage().getScaledInstance(1202, 906, Image.SCALE_DEFAULT);
-					ImageIcon CarFinal=new ImageIcon(CarAD);
-					int numeroCilindros=4+counterPlus;
-					if(numeroCilindros==7) {
-						lblNewLabel.setText("8 cylinder");
-					}
-					switch(counterPlus) {
-						case 0:
-					}
-					lblNewLabel.setText(numeroCilindros+" Cylinders");
-					Car.setIcon(CarFinal);
+					}else {
+						counterPlus++;
+						CCounter.setText(String.valueOf(counterPlus));		
+						ImageIcon CarI = new ImageIcon(this.getClass().getResource("Engine"+CCounter.getText()+".gif"));
+						Image CarAD=CarI.getImage().getScaledInstance(1202, 906, Image.SCALE_DEFAULT);
+						ImageIcon CarFinal=new ImageIcon(CarAD);
+						int numeroCilindros=4+counterPlus;
+						if(numeroCilindros==7) {
+							lblNewLabel.setText("8 cylinder");
+						}
+						lblNewLabel.setText(numeroCilindros+" Cylinders");
+						Car.setIcon(CarFinal);
 					
-				}
+					}			
+				
 			}
 		});
 		ImageIcon fDI=new ImageIcon(this.getClass().getResource("openD.png"));
@@ -132,8 +130,6 @@ public class StartedMenu extends JFrame {
 					lblNewLabel.setText("4 Cylinders");
 				}else {
 					counterPlus--;
-					System.out.println(counterPlus);
-					CCounter.setText(String.valueOf(counterPlus));
 					CCounter.setText(String.valueOf(counterPlus));
 					ImageIcon CarI = new ImageIcon(this.getClass().getResource("Engine"+CCounter.getText()+".gif"));
 					Image CarAD=CarI.getImage().getScaledInstance(1202, 906, Image.SCALE_DEFAULT);
@@ -152,19 +148,32 @@ public class StartedMenu extends JFrame {
 		flechaI.setIcon(FIIFinal);
 		flechaI.setBounds(135, 482, 236, 198);
 		contentPane.add(flechaI);
-		
+		//dinero
 		JLabel billete = new JLabel();
-		
 		billete.setBounds(10, 26, 46, 14);
 		contentPane.add(billete);
-		
-		
+		Car.setIcon(CarFinal);
+		Car.setBounds(387, 163, 1202, 906);
+		contentPane.add(Car);
 		
 		//Backgroud JLabel
 		JLabel labelB = new JLabel("");
 		labelB.setBounds(0, 0, 1933, 1203);
 		contentPane.add(labelB);
 		labelB.setIcon(p);
+		
+		Car.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CCounter CC=new CCounter();
+				CC.setCounter(Integer.parseInt(CCounter.getText()));
+				engineSelector eS=new engineSelector();
+				eS.setVisible(true);		
+				dispose();
+			}
+		});
+		
+		
 		ImageIcon pesoImagen=new ImageIcon(this.getClass().getResource("billete_8.jpg"));
 		Image pesoImagenEscalada=pesoImagen.getImage().getScaledInstance(1202, 906, Image.SCALE_DEFAULT);
 		ImageIcon pesoImagenFinal=new ImageIcon(pesoImagenEscalada);

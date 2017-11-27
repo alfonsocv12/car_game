@@ -1,4 +1,4 @@
-package Car_Game;
+package car_game;
 
 import java.awt.EventQueue;
 import java.awt.Toolkit;

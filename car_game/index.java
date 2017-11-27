@@ -1,4 +1,4 @@
-package Car_Game;
+package car_game;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -12,9 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Car_Game.intro.sound;
-
+import car_game.intro.sound;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -39,7 +37,7 @@ public class index extends JFrame {
 		setUndecorated(true);
 		setVisible(true);
 		//Background
-		ImageIcon fondo=new ImageIcon(this.getClass().getResource("Sin título-1.jpg"));
+		ImageIcon fondo=new ImageIcon(this.getClass().getResource("Sin titulo-1.jpg"));
 		Image fondo1 = fondo.getImage().getScaledInstance(1933, 1203,Image.SCALE_DEFAULT);
 		ImageIcon p=new ImageIcon(fondo1);
 		
@@ -49,6 +47,7 @@ public class index extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				StartedMenu SM=new StartedMenu();
 				SM.setVisible(true);
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(10, 63, 173, 53);
