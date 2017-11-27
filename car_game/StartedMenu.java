@@ -28,18 +28,6 @@ import java.io.PrintWriter;
 import javax.swing.JButton;
 
 public class StartedMenu extends JFrame {
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StartedMenu frame = new StartedMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	private JPanel contentPane;
 

@@ -27,25 +27,6 @@ public class running extends JFrame {
 	private JLabel HP;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					running frame = new running();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public running() {
 		setBounds(0, 0, 450, 300);
 		contentPane = new JPanel();
