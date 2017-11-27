@@ -1,4 +1,4 @@
-package car_game;
+package Car_Game;
 
 import java.awt.EventQueue;
 import java.awt.Toolkit;
@@ -9,9 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import car_game.index;
-
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
@@ -20,6 +17,8 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class intro extends JFrame {
 

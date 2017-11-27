@@ -1,7 +1,10 @@
-package car_game;
+package Car_Game;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.Toolkit;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -9,6 +12,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Car_Game.intro.sound;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -33,7 +39,7 @@ public class index extends JFrame {
 		setUndecorated(true);
 		setVisible(true);
 		//Background
-		ImageIcon fondo=new ImageIcon(this.getClass().getResource("Sin titulo-1.jpg"));
+		ImageIcon fondo=new ImageIcon(this.getClass().getResource("Sin título-1.jpg"));
 		Image fondo1 = fondo.getImage().getScaledInstance(1933, 1203,Image.SCALE_DEFAULT);
 		ImageIcon p=new ImageIcon(fondo1);
 		
